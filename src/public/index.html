@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PDF homepage</h1>
+    
+        <input value="test" id="name-input" type="text" >
+        <button id="get-btn">get invoice</button>
+  
+    <script>
+        const url = 'http://localhost:3000/invoice'
+        const btn = document.getElementById('get-btn');
+        const inputText= document.getElementById('name-input');
+
+        btn.addEventListener('click',async()=>{
+            console.log(inputText.value)
+
+            const resp = await fetch(url,{body:{"name":"test"},method:"POST"});
+            const data = await resp
+            console.log(data)
+
+        })
+
+
+    </script>
+</body>
+</html>
